@@ -57,12 +57,43 @@ public class DemoTests {
 //        By.linkText("Selenium Official Page");
 //        By.partialLinkText("Official Page");
 
-//        driver.findElement(By.id("my-text-id")).;
+//        driver.findElement(By.id("my-text-id")).click();
 
-        // TODO: element actions
-        // TODO: discuss findElements use cases and javadocs
+
+
+        driver.findElement(By.id("my-text-id")).sendKeys("Hello World");
+
+        // 1. using a by object
+        var inputLocator = By.id("my-text-id");
+        driver.findElement(inputLocator).getText();
+
+        // 2. using a webelement reference
+        WebElement inputElement = driver.findElement(By.id("my-text-id"));
+        inputElement.getText();
+
+        // 3. @FindBy => Page Factory pattern
+
+
+//        String text = driver.findElement(By.id("my-text-id")).getText();
+//        var attribute = driver.findElement(By.id("my-text-id")).getAttribute("value");
+//        var domAttribute = driver.findElement(By.id("my-text-id")).getDomAttribute("value");
+//        var domProperty = driver.findElement(By.id("my-text-id")).getDomProperty("value");
+
+        // TODO: Establish Waiting Strategy
         // TODO: advanced element identification
+
 //        driver.findElements();
+        driver.quit();
+    }
+
+    @Test
+    public void disabledElement(){
+        WebDriver driver;
+        driver = new ChromeDriver();
+        driver.get("https://www.selenium.dev/selenium/web/click_tests/disabled_element.html");
+
+        driver.findElement(By.tagName("input")).sendKeys("Hello World");
+
         driver.quit();
     }
 }
