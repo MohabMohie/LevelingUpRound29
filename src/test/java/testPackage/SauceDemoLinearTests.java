@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class SauceDemoTests {
+public class SauceDemoLinearTests {
     @Test
     public void userScenario(){
         // setup
