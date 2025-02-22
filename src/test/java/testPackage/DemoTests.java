@@ -79,10 +79,9 @@ public class DemoTests {
 //        var domAttribute = driver.findElement(By.id("my-text-id")).getDomAttribute("value");
 //        var domProperty = driver.findElement(By.id("my-text-id")).getDomProperty("value");
 
-        // TODO: Establish Waiting Strategy
+//        driver.findElements();
         // TODO: advanced element identification
 
-//        driver.findElements();
         driver.quit();
     }
 
