@@ -11,6 +11,7 @@
 //tagName[@attribute]
 
 //tagName[@attribute='value']/tagName2
+//tagName[@attribute='value']//tagName2
 (//tagName[@attribute='value']/tagName2)[index]
 
 //tagName[@attribute='value'][@attribute2='value2']

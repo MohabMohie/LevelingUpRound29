@@ -80,8 +80,6 @@ public class DemoTests {
 //        var domProperty = driver.findElement(By.id("my-text-id")).getDomProperty("value");
 
 //        driver.findElements();
-        // TODO: advanced element identification
-
         driver.quit();
     }
 
