@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
     public void checkContactNameForErnstHandelInAustria(){
         navigateToW3SchoolsTables();
-        assertContactNameUsingCompanyAndCountry("Ernst Handel", "Austria", "Roland Mendelsssss");
+        assertContactNameUsingCompanyAndCountry("Ernst Handel", "Austria", "Roland Mendel");
     }
 
     public void checkContactNameForAlfredsFutterkisteInGermany(){

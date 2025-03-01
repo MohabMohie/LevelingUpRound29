@@ -2,7 +2,6 @@ package engine;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
 import java.time.Duration;
@@ -11,12 +10,14 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class ActionBot {
     private final WebDriver driver;
-    private final Wait<WebDriver> wait;
+    private final FluentWait<?> wait;
+    private static final Duration ELEMENT_IDENTIFICATION_TIMEOUT = Duration.ofSeconds(30);
+    private static final Duration ASSERTIONS_TIMEOUT = Duration.ofSeconds(5);
 
     public ActionBot(WebDriver driver) {
         this.driver = driver;
         this.wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(5))
+                .withTimeout(ELEMENT_IDENTIFICATION_TIMEOUT)
                 .pollingEvery(Duration.ofMillis(250))
                 .ignoring(InvalidElementStateException.class)
                 .ignoring(StaleElementReferenceException.class)
@@ -66,7 +67,7 @@ public class ActionBot {
 
     public void assertElementText(By locator, String expectedText) {
         System.out.println("Asserting text from " + locator + " is " + expectedText);
-        wait.until(d -> {
+        wait.withTimeout(ASSERTIONS_TIMEOUT).until(d -> {
             Assert.assertEquals(driver.findElement(locator).getText(), expectedText);
             return true;
         });

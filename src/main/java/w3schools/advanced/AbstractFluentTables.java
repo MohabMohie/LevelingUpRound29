@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AbstractFluentTables extends PageObjectModel {
+    By contactName = By.xpath("");
 
     public AbstractFluentTables(WebDriver driver) {
         super(driver);
@@ -15,7 +16,7 @@ public class AbstractFluentTables extends PageObjectModel {
     }
 
     public String getContactNameUsingCompanyAndCountry(String company, String country){
-        By contactName = By.xpath("//tr[contains(.,'"+company+"')][contains(.,'"+country+"')]/td[2]");
+        contactName = By.xpath("//tr[contains(.,'"+company+"')][contains(.,'"+country+"')]/td[2]");
         return driver.findElement(contactName).getText();
     }
 }
